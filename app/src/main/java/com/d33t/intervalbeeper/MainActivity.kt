@@ -1,5 +1,6 @@
 package com.d33t.intervalbeeper
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -16,45 +17,49 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            val repeats =  repeatsCountEdit.text.toString().toInt()
-            val firstInterval = firstIntervalEdit.text.toString().toInt()
-            val secondInterval = secondIntervalEdit.text.toString().toInt()
+        val intent = Intent(this, TimersListActivity::class.java)
+        startActivity(intent)
 
-            val handler = Handler()
-            val delay = 1000L
 
-            var count = 1
-            var repeatsCount = 0
-            var currentIntervalNum = 0
-            handler.postDelayed(object : Runnable {
-                override fun run() {
-                    if (currentIntervalNum == 0) {
-                        if (count < firstInterval) {
-                            BeepHelper().beep(100)
-                        } else {
-                            BeepHelper().finalBeep(200)
-                            count = 0
-                            currentIntervalNum = 1
-                        }
-                    } else {
-                        if (count < secondInterval) {
-                            BeepHelper().beep(100)
-                        } else {
-                            BeepHelper().finalBeep(200)
-                            count = 0
-                            currentIntervalNum = 0
-                            repeatsCount++
-                        }
-                    }
-
-                    count++
-                    if (repeatsCount < repeats) {
-                        handler.postDelayed(this, 900)
-                    }
-                }
-            }, delay)
-        }
+//        fab.setOnClickListener { view ->
+//            val repeats =  repeatsCountEdit.text.toString().toInt()
+//            val firstInterval = firstIntervalEdit.text.toString().toInt()
+//            val secondInterval = secondIntervalEdit.text.toString().toInt()
+//
+//            val handler = Handler()
+//            val delay = 1000L
+//
+//            var count = 1
+//            var repeatsCount = 0
+//            var currentIntervalNum = 0
+//            handler.postDelayed(object : Runnable {
+//                override fun run() {
+//                    if (currentIntervalNum == 0) {
+//                        if (count < firstInterval) {
+//                            BeepHelper().beep(100)
+//                        } else {
+//                            BeepHelper().finalBeep(200)
+//                            count = 0
+//                            currentIntervalNum = 1
+//                        }
+//                    } else {
+//                        if (count < secondInterval) {
+//                            BeepHelper().beep(100)
+//                        } else {
+//                            BeepHelper().finalBeep(200)
+//                            count = 0
+//                            currentIntervalNum = 0
+//                            repeatsCount++
+//                        }
+//                    }
+//
+//                    count++
+//                    if (repeatsCount < repeats) {
+//                        handler.postDelayed(this, 900)
+//                    }
+//                }
+//            }, delay)
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

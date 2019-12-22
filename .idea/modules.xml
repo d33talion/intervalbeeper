@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Interval Beeper.iml" filepath="$PROJECT_DIR$/Interval Beeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intervalbeeper-Interval Beeper.iml" filepath="$PROJECT_DIR$/intervalbeeper-Interval Beeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/intervalbeeper-app.iml" filepath="$PROJECT_DIR$/app/intervalbeeper-app.iml" />
     </modules>
   </component>
 </project>
