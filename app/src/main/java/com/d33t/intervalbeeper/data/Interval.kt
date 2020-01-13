@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "intervals")
 data class Interval(
-    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
+    @PrimaryKey val id: Int,
     @ColumnInfo(name = "timer_id") val timerId: Int,
     val name: String?,
     val duration: Int,
