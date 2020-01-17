@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "timers")
-data class Timer(
-    @PrimaryKey val id: Int,
-    val name: String
-)
+data class Timer(val name: String) {
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
+}

@@ -2,13 +2,22 @@ package com.d33t.intervalbeeper.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "intervals")
+@Entity(
+    tableName = "intervals",
+    foreignKeys = [
+        ForeignKey(
+            entity = Timer::class,
+            parentColumns = ["id"],
+            childColumns = ["timer_id"],
+            onDelete = ForeignKey.CASCADE)])
 data class Interval(
-    @PrimaryKey val id: Int,
     @ColumnInfo(name = "timer_id") val timerId: Int,
     val name: String?,
-    val duration: Int,
+    val durationSeconds: Int,
     val order: Int
-)
+) {
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
+}
