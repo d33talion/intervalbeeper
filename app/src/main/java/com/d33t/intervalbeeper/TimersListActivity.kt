@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.d33t.intervalbeeper.adapters.TimersAdapter
+import com.d33t.intervalbeeper.adapters.TimerListAdapter
 
 
 class TimersListActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class TimersListActivity : AppCompatActivity() {
 
         this.viewManager = LinearLayoutManager(this)
         this.viewAdapter =
-            TimersAdapter(myDataset)
+            TimerListAdapter(myDataset)
 
         this.recylerView = findViewById<RecyclerView>(R.id.timers_list).apply {
             layoutManager = viewManager
