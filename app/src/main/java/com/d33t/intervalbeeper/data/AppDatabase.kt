@@ -11,6 +11,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun intervalDao(): IntervalDao
 
     companion object {
+        private const val DATABASE_NAME = "IntervalBeeper.db"
+
         @Volatile private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
@@ -18,8 +20,8 @@ abstract class AppDatabase : RoomDatabase() {
                 instance ?: buildDatabase(context).also { instance = it }
             }
 
-        private fun buildDatabase(context: Context): AppDatabase = Room
-            .databaseBuilder(context, AppDatabase::class.java, "IntervalBeeper.db")
-            .build()
+        private fun buildDatabase(context: Context): AppDatabase =
+            Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .build()
     }
 }
