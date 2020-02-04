@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.d33t.intervalbeeper.adapters.TimerListAdapter
+import com.d33t.intervalbeeper.data.Timer
 import com.d33t.intervalbeeper.viewmodes.TimerListViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class TimersListActivity : AppCompatActivity() {
@@ -29,5 +31,10 @@ class TimersListActivity : AppCompatActivity() {
         this.viewModel.timers.observe(this, Observer { timers ->
             timers?.let { viewAdapter.setTimers(it) }
         })
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            this.viewModel.addTimer("New Timer")
+        }
     }
 }

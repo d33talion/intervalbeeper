@@ -21,11 +21,10 @@ class TimerListViewModel(application: Application) : AndroidViewModel(applicatio
         this.timers = timerRepository.timers
     }
 
-    fun addTimer(name: String) {
+    fun addTimer(name: String) =
         viewModelScope.launch {
             timerRepository.addTimer(name)
         }
-    }
 
     fun removeTimer(timer: Timer) {
         viewModelScope.launch {
