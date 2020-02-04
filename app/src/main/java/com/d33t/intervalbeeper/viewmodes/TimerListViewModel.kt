@@ -3,7 +3,6 @@ package com.d33t.intervalbeeper.viewmodes
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.d33t.intervalbeeper.data.AppDatabase
 import com.d33t.intervalbeeper.data.Timer
