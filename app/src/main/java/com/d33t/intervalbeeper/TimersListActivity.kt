@@ -20,13 +20,13 @@ class TimersListActivity : AppCompatActivity() {
         val viewManager = LinearLayoutManager(this)
         val viewAdapter = TimerListAdapter()
 
-        val recyclerView = findViewById<RecyclerView>(R.id.timers_list).apply {
+        findViewById<RecyclerView>(R.id.timers_list).apply {
             layoutManager = viewManager
             adapter = viewAdapter
         }
 
         this.viewModel = ViewModelProvider(this).get(TimerListViewModel::class.java)
-        this.viewModel.timers.observe(this, Observer {timers ->
+        this.viewModel.timers.observe(this, Observer { timers ->
             timers?.let { viewAdapter.setTimers(it) }
         })
     }
