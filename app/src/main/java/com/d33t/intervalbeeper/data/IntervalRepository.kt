@@ -13,7 +13,7 @@ class IntervalRepository private constructor(
 
     suspend fun deleteInterval(interval: Interval) = intervalDao.delete(interval)
 
-    private fun doAddInterval(name: String?, duration: Int, order: Int, timer: Timer) {
+    private suspend fun doAddInterval(name: String?, duration: Int, order: Int, timer: Timer) {
         val interval = Interval(timer.id, name, duration, order)
         intervalDao.insert(interval)
     }
