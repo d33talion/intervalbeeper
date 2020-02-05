@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.d33t.intervalbeeper.adapters.TimerListAdapter
@@ -21,10 +22,12 @@ class TimersListActivity : AppCompatActivity() {
 
         val viewManager = LinearLayoutManager(this)
         val viewAdapter = TimerListAdapter()
+        val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
         findViewById<RecyclerView>(R.id.timers_list).apply {
             layoutManager = viewManager
             adapter = viewAdapter
+            addItemDecoration(divider)
         }
 
         this.viewModel = ViewModelProvider(this).get(TimerListViewModel::class.java)
